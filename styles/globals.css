@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body { height: 100%; }
+body { @apply bg-[#0b0e14] text-white antialiased; }
+
+.bg-grid {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+a { @apply underline-offset-4 decoration-white/20 hover:decoration-white/40; }
+.container { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
+.card { @apply rounded-3xl border border-[rgba(255,255,255,0.15)] bg-white/5; }
+.btn { @apply inline-flex items-center gap-2 rounded-2xl px-5 py-3; }
+.btn-primary { @apply bg-white text-black font-semibold hover:bg-white/90; }
+.btn-ghost { @apply border border-[rgba(255,255,255,0.15)] bg-white/5 hover:bg-white/10; }
+.text-dim { @apply text-white/70; }
+.section-title { @apply text-3xl md:text-4xl font-bold; }
+.section-sub { @apply mt-3 text-white/70; }
