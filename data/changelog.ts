@@ -9,7 +9,7 @@ export const CHANGELOG = [
   {
     date: "2025-10-20",
     title: "TD3/TQC & adaptive/risk wiring",
-    what: "Hardened TD3/TQC builders, regime detector and adaptive controller; runtime risk rule registry with JSONL logging.",
+    what: "Hardened TD3/TQC builders, regime detector and adaptive controller; runtime risk rule registry with JSONL decision logging.",
     why: "Parity across algos and configurable safety.",
     ref: "DEV_NOTES"
   },

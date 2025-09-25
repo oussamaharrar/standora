@@ -1,24 +1,6 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://standora.ai";
-
-/** @type {{ siteUrl: string; routes: string[]; robots?: { policy?: { userAgent: string; allow?: string; disallow?: string; }[] } }} */
+/** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl,
-  routes: [
-    "/",
-    "/about",
-    "/contact",
-    "/developers",
-    "/changelog",
-    "/privacy",
-    "/terms",
-    "/security",
-  ],
-  robots: {
-    policy: [
-      {
-        userAgent: "*",
-        allow: "/",
-      },
-    ],
-  },
+  siteUrl: "https://standora.co.uk",
+  generateRobotsTxt: true,
+  outDir: "public",
 };

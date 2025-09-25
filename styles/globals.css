@@ -21,10 +21,26 @@ a { @apply underline-offset-4 decoration-white/20 hover:decoration-white/40; }
 .section-sub { @apply mt-3 text-white/70; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  *:not(.allow-motion),
+  *:not(.allow-motion)::before,
+  *:not(.allow-motion)::after {
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+.nav-link {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+  opacity: 1;
+}
+
+.nav-link.active {
+  color: #fff;
+  opacity: 1;
 }
