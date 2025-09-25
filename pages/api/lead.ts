@@ -28,14 +28,22 @@ async function verifyRecaptcha(token: string) {
   }
 }
 
-async function forwardLead(payload: { email: string; useCase: string; deskAum: string; message: string }) {
+async function forwardLead(payload: {
+  name: string;
+  company: string;
+  role: string;
+  email: string;
+  useCase: string;
+  deskAum: string;
+  message: string;
+}) {
   if (!WEBHOOK_URL) return;
 
   await fetch(WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      text: `Standora lead\nEmail: ${payload.email}\nUse-case: ${payload.useCase}\nDesk/AUM: ${payload.deskAum}\nMessage: ${payload.message}`,
+      text: `Standora lead\nName: ${payload.name}\nCompany: ${payload.company}\nRole: ${payload.role}\nEmail: ${payload.email}\nUse-case: ${payload.useCase}\nDesk/AUM: ${payload.deskAum}\nMessage: ${payload.message}`,
       ...payload,
     }),
   });
@@ -48,8 +56,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  const { email, useCase, deskAum, message, token } = req.body || {};
+  const { name, company, role, email, useCase, deskAum, message, token } = req.body || {};
 
+  if (!name || !company || !role) {
+    res.status(400).json({ ok: false, error: "Name, company, and role are required" });
+    return;
+  }
   if (!email || !/.+@.+\..+/.test(String(email))) {
     res.status(400).json({ ok: false, error: "A valid work email is required" });
     return;
@@ -66,6 +78,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     await verifyRecaptcha(String(token));
     await forwardLead({
+      name: String(name),
+      company: String(company),
+      role: String(role),
       email: String(email),
       useCase: String(useCase),
       deskAum: String(deskAum),

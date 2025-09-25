@@ -4,7 +4,7 @@ import { useScrollSpy } from "@/lib/useScrollSpy";
 
 const SECTION_LINKS = [
   { id: "features", label: "Features" },
-  { id: "how", label: "How it works" },
+  { id: "how", label: "How It Works" },
   { id: "case-studies", label: "Case Studies" },
   { id: "clients", label: "Who We Serve" },
   { id: "infrastructure", label: "Infrastructure" },
@@ -22,26 +22,26 @@ export default function Nav() {
           <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-cyan-400 to-emerald-500" />
           <span className="font-semibold tracking-wide">Standora</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
+        <nav className="hidden md:flex items-center flex-wrap gap-x-4 md:gap-x-6 text-sm text-white/80">
           {SECTION_LINKS.map((link) => (
             <a
               key={link.id}
               href={`/#${link.id}`}
-              className={`nav-link no-underline ${activeId === link.id ? "active" : ""}`.trim()}
+              className={`nav-link px-2 md:px-3 no-underline ${activeId === link.id ? "active" : ""}`.trim()}
             >
               {link.label}
             </a>
           ))}
-          <Link href="/developers" className="nav-link no-underline">
+          <Link href="/developers" className="nav-link px-2 md:px-3 no-underline">
             Developers
           </Link>
-          <Link href="/changelog" className="nav-link no-underline">
-            Changelog
+          <Link href="/last-update" className="nav-link px-2 md:px-3 no-underline">
+            Last Update
           </Link>
-          <Link href="/about" className="nav-link no-underline">
+          <Link href="/about" className="nav-link px-2 md:px-3 no-underline">
             About
           </Link>
-          <Link href="/contact" className="nav-link no-underline">
+          <Link href="/contact" className="nav-link px-2 md:px-3 no-underline">
             Contact
           </Link>
         </nav>

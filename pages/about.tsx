@@ -31,8 +31,8 @@ export default function About() {
         <SkipLink />
         <Nav />
         <main id="main" className="container py-16 md:py-24 max-w-3xl">
-          <h1 className="text-4xl font-bold">About KAWA TEAM LTD & Standora</h1>
-          <p className="mt-4 text-white/70">
+          <h1 className="text-4xl font-bold mb-4 md:mb-6">About KAWA TEAM LTD & Standora</h1>
+          <p className="mt-2 text-white/70">
             We build autonomous <b>RL LLM agents</b> for high-frequency trading across crypto, FX, and global markets. Our mission is to
             engineer the world’s safest, fastest, and most adaptive AI trading agent—and make it accessible beyond a handful of funds.
           </p>
