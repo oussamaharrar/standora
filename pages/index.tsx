@@ -3,22 +3,38 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import { motion } from "framer-motion";
-import { Bolt, BrainCircuit, BarChart3, ShieldCheck, Radar, Cpu, Database, Server, Shield, Lock, Fingerprint, Network, Timer, MonitorSmartphone, LineChart, Building2, Landmark, Briefcase } from "lucide-react";
+import {
+  Bolt,
+  BrainCircuit,
+  ShieldCheck,
+  Workflow,
+  Database,
+  Fingerprint,
+  Network,
+  Timer,
+  MonitorSmartphone,
+  LineChart,
+  Building2,
+  Landmark,
+  Briefcase,
+  Globe2,
+  Gauge
+} from "lucide-react";
 
 export default function Home() {
   const features = [
-    { icon: <Bolt className="h-6 w-6" />, title: "Latency-First Core", desc: "Sub-10ms decision loops with pinned cores, prewarmed models, and micro-batching." },
-    { icon: <BrainCircuit className="h-6 w-6" />, title: "RL LLM Planner", desc: "LLM-based planner proposes intents; RL policies score actions under risk/latency budgets." },
-    { icon: <BarChart3 className="h-6 w-6" />, title: "Adaptive Reward Shaping", desc: "Reward functions swap per regime (trend, range, news) with auto detection." },
-    { icon: <ShieldCheck className="h-6 w-6" />, title: "Capital Protection", desc: "Exposure caps, session warm-up, drawdown locks, volatility circuit-breakers." },
-    { icon: <Radar className="h-6 w-6" />, title: "Signal Fabric", desc: "On-demand feature engineering; classic+learned indicators; order-book microstructure." },
-    { icon: <Cpu className="h-6 w-6" />, title: "Safe Online Learning", desc: "Guardrails with replay buffers, off-policy updates, and anomaly filters while live." },
-    { icon: <Database className="h-6 w-6" />, title: "Versioned Data Lake", desc: "Billions of ticks/klines since 2017; Parquet/Feather, catalog, lineage tracking." },
-    { icon: <Server className="h-6 w-6" />, title: "Canary & Shadow", desc: "Dual-run policies; promote only on objective thresholds and stability windows." },
-    { icon: <Network className="h-6 w-6" />, title: "Smart Routing", desc: "Venue-aware router: slippage simulation, partial fills, and liquidity filters." },
-    { icon: <Timer className="h-6 w-6" />, title: "Deterministic Backtests", desc: "Replay exact timestamps with PTP sync; JSONL decisions for reproducibility." },
-    { icon: <MonitorSmartphone className="h-6 w-6" />, title: "Ops Console", desc: "Full control panel: session modes, risk knobs, kill-switch, and live telemetry." },
-    { icon: <LineChart className="h-6 w-6" />, title: "Auto Reports", desc: "Periodic PDF packs: PnL, Sharpe, DD, hit‑rate, latency distributions, failure modes." },
+    { icon: <Bolt className="h-6 w-6" />, title: "Latency-First Core", desc: "Sub-10ms decision loops with pinned cores, prewarmed models, speculative execution and micro-batching." },
+    { icon: <BrainCircuit className="h-6 w-6" />, title: "RL LLM Planner", desc: "LLM proposes intents; RL policies score actions under strict risk/latency budgets." },
+    { icon: <ShieldCheck className="h-6 w-6" />, title: "Execution & Risk Layer", desc: "Depth/volatility/latency-aware fills, partial fills and circuit-breakers with JSONL risk logs and immutable decision records." },
+    { icon: <Globe2 className="h-6 w-6" />, title: "Paper & Sandbox Gateways", desc: "Safe dry-runs on Binance/Bybit testnets before production; promote only on objective stability windows." },
+    { icon: <Timer className="h-6 w-6" />, title: "Deterministic Backtests", desc: "PTP-synced timelines, reproducible replays, versioned datasets and decision logs." },
+    { icon: <MonitorSmartphone className="h-6 w-6" />, title: "Ops Console", desc: "A control panel for sessions, device pinning, risk knobs, kill-switches and live telemetry." },
+    { icon: <LineChart className="h-6 w-6" />, title: "Evaluation & Reports", desc: "Walk-forward analysis with embargo and PDF tearsheets covering PnL, Sharpe, drawdown and latency distributions." },
+    { icon: <Workflow className="h-6 w-6" />, title: "Hyperparameter Sweep", desc: "CPU-friendly random/grid sweeps with ranked summaries and gates." },
+    { icon: <Database className="h-6 w-6" />, title: "Data Router & Collectors", desc: "CSV/Parquet and ccxt collectors, raw/live modes and feature verification guards." },
+    { icon: <Network className="h-6 w-6" />, title: "Signal Fabric & AI-Core", desc: "Feature store with classical/learned indicators and ai_core signals; regime-aware mapping and adapters." },
+    { icon: <Gauge className="h-6 w-6" />, title: "Strategy & Regime Controller", desc: "PPO, SAC, TD3/TQC with adaptive rewards/risk clamps and safe promotion." },
+    { icon: <Fingerprint className="h-6 w-6" />, title: "Auditability & Compliance", desc: "Immutable logs, JSONL exports, reproducible backtests and policy promotion via canary/shadow windows." },
   ];
 
   const how = [
@@ -27,8 +43,9 @@ export default function Home() {
     { step: "03", title: "LLM Planning", desc: "LLM proposes intents (accumulate/flip   /hedge/flat) with constraints; emits hypotheses for the RL policy layer." },
     { step: "04", title: "RL Policy & Risk Budget", desc: "Policy head scores actions under limits: max exposure, VaR budget, latency target, inventory constraints." },
     { step: "05", title: "Execution Engine", desc: "Router batches orders, simulates slippage, routes per venue; co-location optional; micro-burst cancellation." },
-    { step: "06", title: "Safe Online Updates", desc: "Off-policy updates with replay buffers; anomaly filters; canary then shadow before production promotion." },
-    { step: "07", title: "Monitoring & Reports", desc: "Latency tracing, JSONL decision logs, PDF performance packs; alerts on drift, liquidity, or anomaly spikes." },
+    { step: "06", title: "Safe Experimentation", desc: "Run paper/sandbox dry-runs on testnets with the same risk and execution rules before promotion." },
+    { step: "07", title: "Safe Online Updates", desc: "Off-policy updates with replay buffers; anomaly filters; canary then shadow before production promotion." },
+    { step: "08", title: "Monitoring & Reports", desc: "Latency tracing, JSONL decision logs, PDF performance packs; alerts on drift, liquidity, or anomaly spikes." },
   ];
 
   const infra = [
@@ -51,16 +68,16 @@ export default function Home() {
   ];
 
   const studies = [
-    { title: "Crypto Volatility 2024", metric: "Max DD < 1.1%", desc: "During a 20% BTC shock in hours, agent switched to ‘latency-adaptive’ mode, tightened risk budget, and preserved capital with micro-hedges." },
-    { title: "Forex Flash Window", metric: "Fill time < 12ms", desc: "EUR/CHF spike: router throttled exposure, favored deeper venues; partial fills reduced slippage by ~18% vs naive baseline." },
-    { title: "Earnings Season Alpha", metric: "+0.7 Sharpe (month)", desc: "LLM event planner filtered false positives and limited position time-in-market during high spreads." },
-    { title: "DeFi Liquidity Crunch", metric: "Auto-hedge < 50ms", desc: "Position sizing adapted to pool depth; circuit-breakers paused risk-on until spreads normalized." },
+    { title: "Crypto Volatility 2024", metric: "Max DD 1.1%", desc: "During a 20% BTC shock in hours, agent switched to ‘latency-adaptive’ mode, tightened risk budget, and preserved capital with micro-hedges." },
+    { title: "Forex Flash Window", metric: "Fill time 12ms", desc: "EUR/CHF spike: router throttled exposure, favored deeper venues; partial fills reduced slippage by ~18% vs naive baseline." },
+    { title: "Earnings Season Alpha", metric: "Sharpe +0.7", desc: "LLM event planner filtered false positives and limited position time-in-market during high spreads." },
+    { title: "DeFi Liquidity Crunch", metric: "Hedge time 50ms", desc: "Position sizing adapted to pool depth; circuit-breakers paused risk-on until spreads normalized." },
   ];
 
   const clients = [
-    { icon: <Building2 className="h-6 w-6" />, title: "Crypto Funds", desc: "Institutional-grade execution across volatile crypto markets; cross-venue arbitrage; dynamic liquidity routing; programmatic risk." },
-    { icon: <Briefcase className="h-6 w-6" />, title: "Proprietary Trading Desks", desc: "Custom RL policies per symbol/venue; safe online adaptation; HFT in FX/equities with capital preservation." },
-    { icon: <Landmark className="h-6 w-6" />, title: "Brokers & Exchanges", desc: "Signal infra, compliance-friendly risk layer, plug-and-play router integration; analytics & reporting for clients." },
+    { icon: <Building2 className="h-6 w-6" />, title: "Crypto Funds", desc: "Latency-first execution, JSONL risk logs and sandbox gateways for volatile markets; cross-venue hedging and replayable decision trails." },
+    { icon: <Briefcase className="h-6 w-6" />, title: "Proprietary Trading Desks", desc: "Registry-based RL policies per symbol/venue with hyperparameter sweeps, ops console controls and deterministic backtests." },
+    { icon: <Landmark className="h-6 w-6" />, title: "Brokers & Exchanges", desc: "Signal infrastructure, compliance-ready risk layer and panel tooling for client analytics, routing adapters and audit exports." },
   ];
 
   const faq = [
@@ -68,6 +85,10 @@ export default function Home() {
     { q: "What does reward shaping look like in production?", a: "Multi-objective rewards (PnL, volatility penalty, slippage, drawdown/var breaches). Regime-aware weights adapt per asset and microstructure." },
     { q: "How is safety enforced in live trading?", a: "Circuit-breakers, exposure caps, session warm-ups, anomaly halts, and canary/shadow deployments. Deterministic backtests and immutable decision logs." },
     { q: "Can I customize policies?", a: "Yes—per venue/symbol/timeframe, with risk budgets and activation conditions. Policies can be swapped or blended based on observed regimes." },
+    { q: "What is the execution bridge?", a: "A pluggable engine that simulates depth, volatility and latency, supports partial fills and routes orders per venue under risk rules." },
+    { q: "How do risk rules work?", a: "Configurable exposure caps, drawdown locks, spread jumps, gap/liquidity guards and loss-streak brakes, with JSONL risk logs for audits." },
+    { q: "How do you evaluate safely?", a: "Walk-forward analysis with embargo and reproducible backtests. PDF tearsheets track PnL, Sharpe, DD and latency distributions." },
+    { q: "Can I try it without going live?", a: "Yes. Use paper and sandbox gateways with the same execution/risk layer before production promotion." },
   ];
 
   return (
@@ -75,12 +96,19 @@ export default function Home() {
       <Head>
         <title>Standora — RL LLM Agent for HFT</title>
         <meta name="description" content="Standora is an RL LLM agent for high-frequency trading with ultra-low-latency execution, capital protection, and online learning." />
+        <meta property="og:title" content="Standora — RL LLM Agent for HFT" />
+        <meta property="og:description" content="Latency-first RL LLM stack with execution and risk controls, sandbox gateways, evaluation packs, and institutional governance." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://standora.ai/" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Standora — RL LLM Agent for HFT" />
+        <meta name="twitter:description" content="Latency-first RL LLM stack with execution and risk controls, sandbox gateways, evaluation packs, and institutional governance." />
         <link rel="icon" href="/standora-icon.ico" />
       </Head>
 
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
-        <img src="/mesh.svg" className="pointer-events-none fixed inset-0 w-full h-full object-cover opacity-30" aria-hidden />
-        <img src="/ai-orb.svg" className="pointer-events-none fixed -top-40 right-10 w-[28rem] opacity-70" aria-hidden />
+        <img src="/mesh.svg" className="pointer-events-none fixed inset-0 w-full h-full object-cover opacity-30" alt="" loading="lazy" decoding="async" aria-hidden />
+        <img src="/ai-orb.svg" className="pointer-events-none fixed -top-40 right-10 w-[28rem] opacity-70" alt="" loading="lazy" decoding="async" aria-hidden />
 
         <Nav />
         <Hero />
@@ -111,7 +139,7 @@ export default function Home() {
               <h2 className="section-title">How Standora works</h2>
               <p className="section-sub">A hierarchical loop: LLM planning, RL policy execution, and safe online learning under strict latency & risk budgets.</p>
             </div>
-            <div className="mt-10 grid md:grid-cols-7 gap-4">
+            <div className="mt-10 grid md:grid-cols-4 xl:grid-cols-8 gap-4">
               {how.map((s, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: i * 0.02 }} className="card p-6">
                   <div className="text-sm text-white/50">{s.step}</div>

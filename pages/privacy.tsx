@@ -5,7 +5,18 @@ import Footer from "@/components/Footer";
 export default function Privacy() {
   return (
     <>
-      <Head><title>Privacy Policy — Standora</title><link rel="icon" href="/standora-icon.ico" /></Head>
+      <Head>
+        <title>Privacy Policy — Standora</title>
+        <meta name="description" content="Standora’s privacy commitments covering data collection, usage, retention and user rights." />
+        <meta property="og:title" content="Standora Privacy Policy" />
+        <meta property="og:description" content="How Standora handles account data, operational logs and compliance obligations." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://standora.ai/privacy" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Standora Privacy Policy" />
+        <meta name="twitter:description" content="Learn how Standora manages personal information, operational logs and user rights." />
+        <link rel="icon" href="/standora-icon.ico" />
+      </Head>
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
         <Nav />
         <main className="container py-16 md:py-24 max-w-3xl">
@@ -29,6 +40,7 @@ export default function Privacy() {
           <p className="mt-2 text-white/70">We retain data only as needed and apply encryption in transit, access controls, and regular reviews.</p>
           <h2 className="mt-10 text-2xl font-semibold">Your Rights</h2>
           <p className="mt-2 text-white/70">You may request access, correction, or deletion of your personal information as permitted by law.</p>
+          <p className="mt-8 text-white/60">Standora is a software platform, not a broker or advisor.</p>
           <p className="mt-6 text-xs text-white/50">Template — not legal advice. Please consult counsel.</p>
         </main>
         <Footer />

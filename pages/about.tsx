@@ -5,7 +5,27 @@ import Footer from "@/components/Footer";
 export default function About() {
   return (
     <>
-      <Head><title>About — Standora</title><link rel="icon" href="/standora-icon.ico" /></Head>
+      <Head>
+        <title>About — Standora</title>
+        <meta
+          name="description"
+          content="Standora builds latency-first RL LLM agents with institutional risk controls for autonomous trading."
+        />
+        <meta property="og:title" content="About Standora" />
+        <meta
+          property="og:description"
+          content="Learn about KAWA TEAM LTD and the Standora mission to deliver safe, latency-first RL LLM trading systems."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://standora.ai/about" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="About Standora" />
+        <meta
+          name="twitter:description"
+          content="KAWA TEAM LTD engineers Standora’s RL LLM agent for safe, ultra-low-latency execution."
+        />
+        <link rel="icon" href="/standora-icon.ico" />
+      </Head>
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
         <Nav />
         <main className="container py-16 md:py-24 max-w-3xl">
