@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SkipLink from "@/components/SkipLink";
 
 export default function Privacy() {
   return (
@@ -11,15 +12,16 @@ export default function Privacy() {
         <meta property="og:title" content="Standora Privacy Policy" />
         <meta property="og:description" content="How Standora handles account data, operational logs and compliance obligations." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://standora.ai/privacy" />
+        <meta property="og:url" content="https://standora.co.uk/privacy" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Standora Privacy Policy" />
         <meta name="twitter:description" content="Learn how Standora manages personal information, operational logs and user rights." />
         <link rel="icon" href="/standora-icon.ico" />
       </Head>
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
+        <SkipLink />
         <Nav />
-        <main className="container py-16 md:py-24 max-w-3xl">
+        <main id="main" className="container py-16 md:py-24 max-w-3xl">
           <h1 className="text-4xl font-bold">Privacy Policy</h1>
           <p className="mt-4 text-white/70">
             This Privacy Policy explains how we collect, use, and protect information when you use Standora.

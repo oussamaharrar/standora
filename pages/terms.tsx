@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SkipLink from "@/components/SkipLink";
 
 export default function Terms() {
   return (
@@ -11,15 +12,16 @@ export default function Terms() {
         <meta property="og:title" content="Standora Terms of Service" />
         <meta property="og:description" content="Understand Standora’s usage policies, compliance responsibilities and liability limits." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://standora.ai/terms" />
+        <meta property="og:url" content="https://standora.co.uk/terms" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Standora Terms of Service" />
         <meta name="twitter:description" content="Review how Standora may be used, responsibilities for accounts and risk disclosures." />
         <link rel="icon" href="/standora-icon.ico" />
       </Head>
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
+        <SkipLink />
         <Nav />
-        <main className="container py-16 md:py-24 max-w-3xl">
+        <main id="main" className="container py-16 md:py-24 max-w-3xl">
           <h1 className="text-4xl font-bold">Terms of Service</h1>
           <p className="mt-4 text-white/70">These Terms govern your use of Standora. By using the platform, you agree to these Terms.</p>
           <h2 className="mt-10 text-2xl font-semibold">Use of the Service</h2>

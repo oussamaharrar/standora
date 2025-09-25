@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SkipLink from "@/components/SkipLink";
 import Script from "next/script";
 import { useState } from "react";
 import { Send, Mail, Briefcase, BarChart3 } from "lucide-react";
@@ -67,7 +68,7 @@ export default function Contact() {
           content="Connect with the Standora team to schedule a live demo and review execution, risk, and compliance requirements."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://standora.ai/contact" />
+        <meta property="og:url" content="https://standora.co.uk/contact" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Contact Standora" />
         <meta
@@ -82,8 +83,9 @@ export default function Contact() {
       )}
 
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
+        <SkipLink />
         <Nav />
-        <main className="container py-16 md:py-24 max-w-3xl space-y-6">
+        <main id="main" className="container py-16 md:py-24 max-w-3xl space-y-6">
           <section>
             <h1 className="text-4xl font-bold">Contact us</h1>
             <p className="mt-3 text-white/70">
@@ -116,7 +118,7 @@ export default function Contact() {
                   placeholder="Market-making, hedging, execution ops…"
                   aria-required="true"
                 />
-                <Briefcase className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden />
+                <Briefcase className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden="true" />
               </div>
             </label>
 
@@ -130,7 +132,7 @@ export default function Contact() {
                   placeholder="e.g. Crypto desk · $120M AUM"
                   aria-required="true"
                 />
-                <BarChart3 className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden />
+                <BarChart3 className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden="true" />
               </div>
             </label>
 
@@ -165,7 +167,7 @@ export default function Contact() {
           <div className="text-sm text-white/70">
             <p>Prefer email?</p>
             <a href="mailto:support@standora.co.uk" className="mt-1 inline-flex items-center gap-2 underline">
-              <Mail className="h-4 w-4" aria-hidden /> support@standora.co.uk
+              <Mail className="h-4 w-4" aria-hidden="true" /> support@standora.co.uk
             </a>
           </div>
         </main>

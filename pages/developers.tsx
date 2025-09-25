@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SkipLink from "@/components/SkipLink";
 
 export default function Developers() {
   return (
@@ -14,7 +15,7 @@ export default function Developers() {
           content="Quickstart commands, CLI reference, config modes and artifact formats for Standora’s RL LLM stack."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://standora.ai/developers" />
+        <meta property="og:url" content="https://standora.co.uk/developers" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Standora for Developers" />
         <meta
@@ -24,8 +25,9 @@ export default function Developers() {
         <link rel="icon" href="/standora-icon.ico" />
       </Head>
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
+        <SkipLink />
         <Nav />
-        <main className="container py-16 md:py-24 max-w-4xl space-y-12">
+        <main id="main" className="container py-16 md:py-24 max-w-4xl space-y-12">
           <section>
             <h1 className="text-4xl font-bold">Developers</h1>
             <p className="mt-3 text-white/70">Start locally with synthetic data, evaluate safely, then experiment with paper/sandbox gateways before going live.</p>
@@ -60,7 +62,7 @@ python -m bot_trade.tools.sweep --mode random --n-trials 4 --symbol BTCUSDT --fr
 
           <section>
             <h2 className="text-2xl font-semibold">Artifacts & Logs</h2>
-            <p className="text-white/70">CSV/JSON/PNG artifacts are written periodically. Risk and decisions are exported as JSONL for audits; knowledge base snapshots track run metadata.</p>
+            <p className="text-white/70">CSV/JSON/PNG artifacts are written periodically. Risk and decisions are exported as JSONL decision logs for audits; knowledge base snapshots track run metadata.</p>
           </section>
 
           <section>

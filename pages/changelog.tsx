@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import SkipLink from "@/components/SkipLink";
 import { CHANGELOG } from "@/data/changelog";
 
 export default function Changelog() {
@@ -12,15 +13,16 @@ export default function Changelog() {
         <meta property="og:title" content="Standora Changelog" />
         <meta property="og:description" content="Track Standora’s platform updates across execution, risk, sandbox gateways and panel tooling." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://standora.ai/changelog" />
+        <meta property="og:url" content="https://standora.co.uk/changelog" />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="Standora Changelog" />
         <meta name="twitter:description" content="Recent Standora milestones covering execution realism, sandbox gateways and orchestration wiring." />
         <link rel="icon" href="/standora-icon.ico" />
       </Head>
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
+        <SkipLink />
         <Nav />
-        <main className="container py-16 md:py-24 max-w-3xl">
+        <main id="main" className="container py-16 md:py-24 max-w-3xl">
           <h1 className="text-4xl font-bold">Changelog</h1>
           <p className="mt-3 text-white/70">High-level, non-sensitive highlights from our internal releases.</p>
           <div className="mt-8 space-y-6">

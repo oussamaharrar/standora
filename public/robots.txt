@@ -1,4 +1,9 @@
+# *
 User-agent: *
 Allow: /
 
-Sitemap: https://standora.ai/sitemap.xml
+# Host
+Host: https://standora.co.uk
+
+# Sitemaps
+Sitemap: https://standora.co.uk/sitemap.xml
