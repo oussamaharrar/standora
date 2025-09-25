@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import SkipLink from "@/components/SkipLink";
 import Script from "next/script";
 import { useState } from "react";
-import { Send, Mail, Briefcase, BarChart3 } from "lucide-react";
+import { Send, Mail, Briefcase, BarChart3, Linkedin, Twitter, MessageSquare } from "lucide-react";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
@@ -20,7 +20,10 @@ export default function Contact() {
     const form = e.currentTarget;
     const formData = new FormData(form);
     const payload = {
-      email: String(formData.get("email") || ""),
+      name: String(formData.get("name") || ""),
+      company: String(formData.get("company") || ""),
+      role: String(formData.get("role") || ""),
+      email: String(formData.get("workEmail") || ""),
       useCase: String(formData.get("useCase") || ""),
       deskAum: String(formData.get("deskAum") || ""),
       message: String(formData.get("message") || ""),
@@ -87,8 +90,8 @@ export default function Contact() {
         <Nav />
         <main id="main" className="container py-16 md:py-24 max-w-3xl space-y-6">
           <section>
-            <h1 className="text-4xl font-bold">Contact us</h1>
-            <p className="mt-3 text-white/70">
+            <h1 className="text-4xl font-bold mb-4 md:mb-6">Contact us</h1>
+            <p className="mt-2 text-white/70">
               For partnerships, enterprise pilots or integration reviews, share a few details and we will schedule a session.
             </p>
           </section>
@@ -96,57 +99,98 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="card p-6 space-y-4" aria-label="Request a Standora demo">
             <input type="text" name="_gotcha" className="hidden" aria-hidden="true" tabIndex={-1} />
 
-            <label className="flex flex-col gap-2 text-sm text-white/80">
-              Work email
-              <input
-                type="email"
-                name="email"
-                required
-                className="rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
-                placeholder="you@fund.com"
-                aria-required="true"
-              />
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm text-white/80">
-              Primary use-case
-              <div className="relative">
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="flex flex-col gap-2 text-sm text-white/80">
+                <label htmlFor="name">Full name</label>
                 <input
-                  name="useCase"
+                  id="name"
+                  name="name"
                   required
-                  className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 pr-12 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
-                  placeholder="Market-making, hedging, execution ops…"
+                  className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
+                  placeholder="Ada Lovelace"
                   aria-required="true"
                 />
-                <Briefcase className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden="true" />
               </div>
-            </label>
-
-            <label className="flex flex-col gap-2 text-sm text-white/80">
-              Desk / AUM context
-              <div className="relative">
+              <div className="flex flex-col gap-2 text-sm text-white/80">
+                <label htmlFor="company">Company</label>
                 <input
-                  name="deskAum"
+                  id="company"
+                  name="company"
                   required
-                  className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 pr-12 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
-                  placeholder="e.g. Crypto desk · $120M AUM"
+                  className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
+                  placeholder="Fund or firm name"
                   aria-required="true"
                 />
-                <BarChart3 className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden="true" />
               </div>
-            </label>
+              <div className="flex flex-col gap-2 text-sm text-white/80">
+                <label htmlFor="role">Role / Title</label>
+                <input
+                  id="role"
+                  name="role"
+                  required
+                  className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
+                  placeholder="Head of Trading"
+                  aria-required="true"
+                />
+              </div>
+              <div className="flex flex-col gap-2 text-sm text-white/80">
+                <label htmlFor="workEmail">Work email</label>
+                <input
+                  id="workEmail"
+                  name="workEmail"
+                  type="email"
+                  required
+                  className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
+                  placeholder="you@fund.com"
+                  aria-required="true"
+                />
+              </div>
+            </div>
 
-            <label className="flex flex-col gap-2 text-sm text-white/80">
-              Message
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="flex flex-col gap-2 text-sm text-white/80">
+                <label htmlFor="useCase">Primary use-case</label>
+                <div className="relative">
+                  <input
+                    id="useCase"
+                    name="useCase"
+                    required
+                    className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 pr-12 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
+                    placeholder="Market-making, hedging, execution ops…"
+                    aria-required="true"
+                  />
+                  <Briefcase className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden="true" />
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 text-sm text-white/80">
+                <label htmlFor="deskAum">Desk / AUM context</label>
+                <div className="relative">
+                  <input
+                    id="deskAum"
+                    name="deskAum"
+                    required
+                    className="w-full rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 pr-12 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
+                    placeholder="e.g. Crypto desk · $120M AUM"
+                    aria-required="true"
+                  />
+                  <BarChart3 className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40" aria-hidden="true" />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-3 flex flex-col gap-2 text-sm text-white/80">
+              <label htmlFor="message">Message</label>
               <textarea
+                id="message"
                 name="message"
+                minLength={20}
                 required
-                rows={5}
+                rows={6}
                 className="rounded-2xl bg-white/5 border border-[rgba(255,255,255,0.15)] px-4 py-3 text-base outline-none focus:ring-2 focus:ring-emerald-400/60"
                 placeholder="Timeline, venues, regions, risk considerations…"
                 aria-required="true"
               />
-            </label>
+            </div>
 
             <button
               type="submit"
@@ -163,6 +207,33 @@ export default function Contact() {
               Protected by reCAPTCHA. Standora is a software platform, not a broker or advisor.
             </p>
           </form>
+
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="btn btn-ghost inline-flex items-center gap-2 no-underline"
+              rel="noopener"
+            >
+              <Linkedin className="h-5 w-5" aria-hidden="true" /> LinkedIn
+            </a>
+            <a
+              href="#"
+              aria-label="Discord"
+              className="btn btn-ghost inline-flex items-center gap-2 no-underline"
+              rel="noopener"
+            >
+              <MessageSquare className="h-5 w-5" aria-hidden="true" /> Discord
+            </a>
+            <a
+              href="#"
+              aria-label="Twitter (X)"
+              className="btn btn-ghost inline-flex items-center gap-2 no-underline"
+              rel="noopener"
+            >
+              <Twitter className="h-5 w-5" aria-hidden="true" /> Twitter (X)
+            </a>
+          </div>
 
           <div className="text-sm text-white/70">
             <p>Prefer email?</p>

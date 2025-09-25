@@ -22,7 +22,7 @@ export default function Security() {
         <SkipLink />
         <Nav />
         <main id="main" className="container py-16 md:py-24 max-w-3xl">
-          <h1 className="text-4xl font-bold">Security</h1>
+          <h1 className="text-4xl font-bold mb-4 md:mb-6">Security</h1>
           <ul className="mt-6 text-white/70 list-disc pl-5 space-y-2">
             <li>Encryption in transit; environment secrets in a credential vault.</li>
             <li>Role-based access control; least-privilege and regular key rotation.</li>

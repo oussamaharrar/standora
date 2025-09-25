@@ -40,13 +40,13 @@ export default function Home() {
 
   const how = [
     { step: "01", title: "Market Ingestion & Retrieval", desc: "Streams: L2 order-books, ticks, klines; macro/event feeds. LLM retrieves context windows (venue state, volatility regime)." },
-    { step: "02", title: "Feature Store & Indicators", desc: "Classical (RSI/MACD/BB), learned latent factors, microstructure (imbalance, queue dynamics), synthetic labels." },
-    { step: "03", title: "LLM Planning", desc: "LLM proposes intents (accumulate/flip/hedge/flat) with constraints; emits hypotheses for the RL policy layer." },
+    { step: "02", title: "Feature Store & Indicators", desc: "Classical (RSI/MACD/BB), learned latent factors, microstructure (imbalance, queue dynamics). Synthetic labels keep features fresh." },
+    { step: "03", title: "LLM Planning", desc: "LLM proposes intents (accumulate/flip/hedge/flat) with constraints. Hypotheses go to the RL policy layer for scoring." },
     { step: "04", title: "RL Policy & Risk Budget", desc: "Policy head scores actions under limits: max exposure, VaR budget, latency target, inventory constraints." },
-    { step: "05", title: "Execution Engine", desc: "Router batches orders, simulates slippage, routes per venue; co-location optional; micro-burst cancellation." },
-    { step: "06", title: "Safe Experimentation", desc: "Run paper/sandbox dry-runs on testnets with the same risk and execution rules before promotion." },
-    { step: "07", title: "Safe Online Updates", desc: "Off-policy updates with replay buffers; anomaly filters; canary then shadow before production promotion." },
-    { step: "08", title: "Monitoring & Reports", desc: "Latency tracing, JSONL decision logs, PDF performance packs; alerts on drift, liquidity, or anomaly spikes." },
+    { step: "05", title: "Execution Engine", desc: "Router batches orders, simulates slippage, routes per venue. Co-location optional with micro-burst cancellation." },
+    { step: "06", title: "Safe Experimentation", desc: "Run paper/sandbox dry-runs on testnets with the same risk and execution rules. Promote only when stability gates pass." },
+    { step: "07", title: "Safe Online Updates", desc: "Off-policy updates with replay buffers and anomaly filters. Canary then shadow before production promotion." },
+    { step: "08", title: "Monitoring & Reports", desc: "Latency tracing, JSONL decision logs, PDF performance packs. Alerts fire on drift, liquidity, or anomaly spikes." },
   ];
 
   const infra = [
@@ -76,9 +76,21 @@ export default function Home() {
   ];
 
   const clients = [
-    { icon: <Building2 className="h-6 w-6" />, title: "Crypto Funds", desc: "Latency-first execution, JSONL decision logs and sandbox gateways for volatile markets; cross-venue hedging and replayable decision trails." },
-    { icon: <Briefcase className="h-6 w-6" />, title: "Proprietary Trading Desks", desc: "Registry-based RL policies per symbol/venue with hyperparameter sweeps, ops console controls and deterministic backtests." },
-    { icon: <Landmark className="h-6 w-6" />, title: "Brokers & Exchanges", desc: "Signal infrastructure, compliance-ready risk layer and panel tooling for client analytics, routing adapters and audit exports." },
+    {
+      icon: <Building2 className="h-6 w-6" />,
+      title: "Crypto Funds",
+      desc: "Institutional-grade execution across volatile digital assets. Venue-aware routing, depth/latency-sensitive fills, configurable risk caps and audit-ready decision logs.",
+    },
+    {
+      icon: <Briefcase className="h-6 w-6" />,
+      title: "Proprietary Trading Desks",
+      desc: "Custom RL policies per symbol/venue with regime-aware rewards. Fast iteration via paper/sandbox dry-runs, sweeps and reproducible backtests.",
+    },
+    {
+      icon: <Landmark className="h-6 w-6" />,
+      title: "Brokers & Exchanges",
+      desc: "Signal and execution infrastructure with compliance-friendly risk layer. Plug-and-play router integration, reporting packs and client-side analytics.",
+    },
   ];
 
   const faq = [
@@ -146,10 +158,10 @@ export default function Home() {
           <section id="how" className="py-20 md:py-28">
             <div className="container">
               <div className="max-w-2xl">
-                <h2 className="section-title">How Standora works</h2>
+                <h2 className="section-title">How It Works</h2>
                 <p className="section-sub">A hierarchical loop: LLM planning, RL policy execution, and safe online learning under strict latency & risk budgets.</p>
               </div>
-              <div className="mt-10 grid md:grid-cols-4 xl:grid-cols-8 gap-4">
+              <div className="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
                 {how.map((s, i) => (
                   <motion.div
                     key={i}
@@ -157,11 +169,11 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.5, delay: i * 0.02 }}
-                    className="card p-6"
+                    className="card p-6 space-y-2 leading-relaxed"
                   >
                     <div className="text-sm text-white/50" aria-hidden="true">{s.step}</div>
-                    <h3 className="mt-1 font-semibold">{s.title}</h3>
-                    <p className="mt-2 text-sm text-white/70">{s.desc}</p>
+                    <h3 className="font-semibold">{s.title}</h3>
+                    <p className="text-sm text-white/70">{s.desc}</p>
                   </motion.div>
                 ))}
               </div>

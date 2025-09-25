@@ -22,8 +22,8 @@ export default function Terms() {
         <SkipLink />
         <Nav />
         <main id="main" className="container py-16 md:py-24 max-w-3xl">
-          <h1 className="text-4xl font-bold">Terms of Service</h1>
-          <p className="mt-4 text-white/70">These Terms govern your use of Standora. By using the platform, you agree to these Terms.</p>
+          <h1 className="text-4xl font-bold mb-4 md:mb-6">Terms of Service</h1>
+          <p className="mt-2 text-white/70">These Terms govern your use of Standora. By using the platform, you agree to these Terms.</p>
           <h2 className="mt-10 text-2xl font-semibold">Use of the Service</h2>
           <ul className="mt-2 text-white/70 list-disc pl-5 space-y-1">
             <li>Standora is for research and execution; no investment advice.</li>

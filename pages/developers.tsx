@@ -29,8 +29,8 @@ export default function Developers() {
         <Nav />
         <main id="main" className="container py-16 md:py-24 max-w-4xl space-y-12">
           <section>
-            <h1 className="text-4xl font-bold">Developers</h1>
-            <p className="mt-3 text-white/70">Start locally with synthetic data, evaluate safely, then experiment with paper/sandbox gateways before going live.</p>
+            <h1 className="text-4xl font-bold mb-4 md:mb-6">Developers</h1>
+            <p className="mt-2 text-white/70">Start locally with synthetic data, evaluate safely, then experiment with paper/sandbox gateways before going live.</p>
           </section>
 
           <section>

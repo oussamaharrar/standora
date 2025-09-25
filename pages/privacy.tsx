@@ -22,8 +22,8 @@ export default function Privacy() {
         <SkipLink />
         <Nav />
         <main id="main" className="container py-16 md:py-24 max-w-3xl">
-          <h1 className="text-4xl font-bold">Privacy Policy</h1>
-          <p className="mt-4 text-white/70">
+          <h1 className="text-4xl font-bold mb-4 md:mb-6">Privacy Policy</h1>
+          <p className="mt-2 text-white/70">
             This Privacy Policy explains how we collect, use, and protect information when you use Standora.
           </p>
           <h2 className="mt-10 text-2xl font-semibold">Information We Collect</h2>
