@@ -17,12 +17,29 @@ export default function Nav() {
           <a href="/#infrastructure" className="hover:text-white">Infrastructure</a>
           <a href="/#compliance" className="hover:text-white">Compliance</a>
           <a href="/#faq" className="hover:text-white">FAQ</a>
+          <Link href="/developers" className="hover:text-white">Developers</Link>
+          <Link href="/changelog" className="hover:text-white">Changelog</Link>
           <Link href="/about" className="hover:text-white">About</Link>
           <Link href="/contact" className="hover:text-white">Contact</Link>
         </nav>
-        <Link href="/contact" className="group btn btn-ghost text-sm no-underline">
-          Request demo <ArrowRight className="h-4 w-4 transition -translate-x-0 group-hover:translate-x-0.5" />
-        </Link>
+        <div className="hidden md:flex items-center gap-3">
+          <a href="/sample-report.pdf" className="btn btn-ghost text-sm no-underline" target="_blank" rel="noopener">
+            Download sample report (PDF)
+          </a>
+          <Link href="/contact" className="group btn btn-primary text-sm no-underline">
+            Get a live demo <ArrowRight className="h-4 w-4 transition -translate-x-0 group-hover:translate-x-0.5" />
+          </Link>
+        </div>
+      </div>
+      <div className="md:hidden border-t border-white/10">
+        <div className="container py-3 flex flex-col sm:flex-row gap-3">
+          <a href="/sample-report.pdf" className="btn btn-ghost text-sm no-underline" target="_blank" rel="noopener">
+            Download sample report (PDF)
+          </a>
+          <Link href="/contact" className="btn btn-primary text-sm no-underline">
+            Get a live demo
+          </Link>
+        </div>
       </div>
     </header>
   );

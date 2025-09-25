@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronRight, LineChart, Send } from "lucide-react";
+import { ChevronRight, LineChart, Send, Download } from "lucide-react";
 import { useState } from "react";
 
 export default function Hero() {
@@ -19,8 +19,8 @@ export default function Hero() {
               <a href="/contact" className="btn btn-primary no-underline">
                 Get a live demo <ChevronRight className="h-5 w-5" />
               </a>
-              <a href="/#features" className="btn btn-ghost no-underline">
-                Explore features
+              <a href="/sample-report.pdf" className="btn btn-ghost no-underline" rel="noopener" target="_blank">
+                Download sample report (PDF) <Download className="h-5 w-5" />
               </a>
             </motion.div>
             <motion.form onSubmit={(e) => e.preventDefault()} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }} className="mt-8 grid sm:grid-cols-[1fr_auto] gap-3 max-w-xl">
