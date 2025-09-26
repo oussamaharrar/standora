@@ -58,17 +58,8 @@ export default function Nav() {
               </a>
             );
           })}
-          <Link href="/developers" className="nav-link px-2 md:px-3 no-underline">
-            Developers
-          </Link>
           <Link href="/last-update" className="nav-link px-2 md:px-3 no-underline">
             Last Update
-          </Link>
-          <Link href="/about" className="nav-link px-2 md:px-3 no-underline">
-            About
-          </Link>
-          <Link href="/contact" className="nav-link px-2 md:px-3 no-underline">
-            Contact
           </Link>
         </div>
 
@@ -108,17 +99,8 @@ export default function Nav() {
                 </a>
               );
             })}
-            <Link href="/developers" className="nav-link py-2" onClick={handleNavClick}>
-              Developers
-            </Link>
             <Link href="/last-update" className="nav-link py-2" onClick={handleNavClick}>
               Last Update
-            </Link>
-            <Link href="/about" className="nav-link py-2" onClick={handleNavClick}>
-              About
-            </Link>
-            <Link href="/contact" className="nav-link py-2" onClick={handleNavClick}>
-              Contact
             </Link>
             <div className="pt-2 flex gap-2">
               <a
