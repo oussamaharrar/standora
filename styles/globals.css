@@ -2,9 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
+:root {
+  color-scheme: dark;
+  --header-h: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 html, body { height: 100%; }
-body { @apply bg-[#0b0e14] text-white antialiased; }
+body {
+  @apply bg-[#0b0e14] text-white antialiased;
+  overflow-x: clip;
+}
 
 .bg-grid {
   background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
@@ -21,26 +32,23 @@ a { @apply underline-offset-4 decoration-white/20 hover:decoration-white/40; }
 .section-sub { @apply mt-2 text-white/70; }
 
 @media (prefers-reduced-motion: reduce) {
-  *:not(.allow-motion),
-  *:not(.allow-motion)::before,
-  *:not(.allow-motion)::after {
+  *:not(.allow-motion) {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
   }
 }
 
-.nav-link {
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
+.nav-link { opacity: 0.78; transition: opacity 0.15s ease; }
+.nav-link:hover, .nav-link.active { opacity: 1; }
+
+.btn-compact { height: 2.25rem; padding: 0 0.9rem; font-size: 0.875rem; border-radius: 0.875rem; }
+
+.nav-scroller {
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.nav-link:hover,
-.nav-link:focus-visible {
-  opacity: 1;
-}
-
-.nav-link.active {
-  color: #fff;
-  opacity: 1;
-}
+.nav-scroller::-webkit-scrollbar { display: none; }
