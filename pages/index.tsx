@@ -28,7 +28,7 @@ export default function Home() {
     { icon: <BrainCircuit className="h-6 w-6" />, title: "RL LLM Planner", desc: "LLM proposes intents; RL policies score actions under strict risk/latency budgets." },
     { icon: <ShieldCheck className="h-6 w-6" />, title: "Execution & Risk Layer", desc: "Depth/volatility/latency-aware fills, partial fills and circuit-breakers with JSONL decision logs and immutable decision records." },
     { icon: <Globe2 className="h-6 w-6" />, title: "Paper & Sandbox Gateways", desc: "Safe dry-runs on Binance/Bybit testnets before production; promote only on objective stability windows." },
-    { icon: <Timer className="h-6 w-6" />, title: "Deterministic Backtests", desc: "PTP-synced timelines, reproducible replays, versioned datasets and decision logs." },
+    { icon: <Timer className="h-6 w-6" />, title: "Deterministic Backtests", desc: "PTP-synced timelines, reproducible replays, versioned datasets and JSONL decision logs." },
     { icon: <MonitorSmartphone className="h-6 w-6" />, title: "Ops Console", desc: "A control panel for sessions, device pinning, risk knobs, kill-switches and live telemetry." },
     { icon: <LineChart className="h-6 w-6" />, title: "Evaluation & Reports", desc: "Walk-forward analysis with embargo and PDF tearsheets covering PnL, Sharpe, drawdown and latency distributions." },
     { icon: <Workflow className="h-6 w-6" />, title: "Hyperparameter Sweep", desc: "CPU-friendly random/grid sweeps with ranked summaries and gates." },
@@ -79,7 +79,7 @@ export default function Home() {
     {
       icon: <Building2 className="h-6 w-6" />,
       title: "Crypto Funds",
-      desc: "Institutional-grade execution across volatile digital assets. Venue-aware routing, depth/latency-sensitive fills, configurable risk caps and audit-ready decision logs.",
+      desc: "Institutional-grade execution across volatile digital assets. Venue-aware routing, depth/latency-sensitive fills, configurable risk caps and audit-ready JSONL decision logs.",
     },
     {
       icon: <Briefcase className="h-6 w-6" />,
@@ -96,7 +96,7 @@ export default function Home() {
   const faq = [
     { q: "How do you maintain latency budgets?", a: "Pinned CPU cores for hot paths, GPU-accelerated inference heads, prewarmed models, speculative execution, and PTP-synced clocks over 100GbE." },
     { q: "What does reward shaping look like in production?", a: "Multi-objective rewards (PnL, volatility penalty, slippage, drawdown/var breaches). Regime-aware weights adapt per asset and microstructure." },
-    { q: "How is safety enforced in live trading?", a: "Circuit-breakers, exposure caps, session warm-ups, anomaly halts, and canary/shadow deployments. Deterministic backtests and immutable decision logs." },
+    { q: "How is safety enforced in live trading?", a: "Circuit-breakers, exposure caps, session warm-ups, anomaly halts, and canary/shadow deployments. Deterministic backtests and immutable JSONL decision logs." },
     { q: "Can I customize policies?", a: "Yes—per venue/symbol/timeframe, with risk budgets and activation conditions. Policies can be swapped or blended based on observed regimes." },
     { q: "What is the execution bridge?", a: "A pluggable engine that simulates depth, volatility and latency, supports partial fills and routes orders per venue under risk rules." },
     { q: "How do risk rules work?", a: "Configurable exposure caps, drawdown locks, spread jumps, gap/liquidity guards and loss-streak brakes, with JSONL decision logs for audits." },
@@ -121,15 +121,31 @@ export default function Home() {
 
       <div className="min-h-screen bg-[#0b0e14] text-white bg-grid">
         <SkipLink />
-        <img src="/mesh.svg" className="pointer-events-none fixed inset-0 w-full h-full object-cover opacity-30" alt="" loading="lazy" decoding="async" aria-hidden="true" />
-        <img src="/ai-orb.svg" className="pointer-events-none fixed -top-40 right-10 w-[28rem] opacity-70" alt="" loading="lazy" decoding="async" aria-hidden="true" />
+        <div className="pointer-events-none fixed inset-0 -z-10">
+          <img
+            src="/mesh.svg"
+            className="absolute inset-0 h-full w-full object-cover opacity-30"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            aria-hidden="true"
+          />
+          <img
+            src="/ai-orb.svg"
+            className="absolute -top-40 right-10 w-[28rem] opacity-70"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            aria-hidden="true"
+          />
+        </div>
 
         <Nav />
         <main id="main">
           <Hero />
 
           {/* Features */}
-          <section id="features" className="py-20 md:py-28">
+          <section id="features" className="scroll-mt-[var(--header-h)] py-20 md:py-28">
             <div className="container">
               <div className="max-w-2xl">
                 <h2 className="section-title">Features you actually need in production</h2>
@@ -155,11 +171,11 @@ export default function Home() {
           </section>
 
           {/* How it works */}
-          <section id="how" className="py-20 md:py-28">
+          <section id="how" className="scroll-mt-[var(--header-h)] py-16 md:py-24">
             <div className="container">
               <div className="max-w-2xl">
                 <h2 className="section-title">How It Works</h2>
-                <p className="section-sub">A hierarchical loop: LLM planning, RL policy execution, and safe online learning under strict latency & risk budgets.</p>
+                <p className="section-sub">LLM planning → RL policy execution → safe online adaptation under strict latency & risk budgets.</p>
               </div>
               <div className="mt-10 grid md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
                 {how.map((s, i) => (
@@ -181,7 +197,7 @@ export default function Home() {
           </section>
 
           {/* Case Studies */}
-          <section id="case-studies" className="py-20 md:py-28">
+          <section id="case-studies" className="scroll-mt-[var(--header-h)] py-20 md:py-28">
             <div className="container">
               <div className="max-w-2xl">
                 <h2 className="section-title">Case Studies</h2>
@@ -208,7 +224,7 @@ export default function Home() {
           </section>
 
           {/* Client Sectors */}
-          <section id="clients" className="py-20 md:py-28">
+          <section id="clients" className="scroll-mt-[var(--header-h)] py-20 md:py-28">
             <div className="container">
               <div className="max-w-2xl">
                 <h2 className="section-title">Who We Serve</h2>
@@ -229,7 +245,7 @@ export default function Home() {
           </section>
 
           {/* Infrastructure */}
-          <section id="infrastructure" className="py-20 md:py-28">
+          <section id="infrastructure" className="scroll-mt-[var(--header-h)] py-20 md:py-28">
             <div className="container">
               <div className="max-w-2xl">
                 <h2 className="section-title">Training & Infrastructure</h2>
@@ -247,7 +263,7 @@ export default function Home() {
           </section>
 
           {/* Compliance */}
-          <section id="compliance" className="py-20 md:py-28">
+          <section id="compliance" className="scroll-mt-[var(--header-h)] py-20 md:py-28">
             <div className="container">
               <div className="max-w-2xl">
                 <h2 className="section-title">Compliance & Security</h2>
@@ -265,7 +281,7 @@ export default function Home() {
           </section>
 
           {/* Technical FAQ */}
-          <section id="faq" className="py-20 md:py-28">
+          <section id="faq" className="scroll-mt-[var(--header-h)] py-20 md:py-28">
             <div className="container">
               <div className="max-w-2xl">
                 <h2 className="section-title">Technical FAQ</h2>

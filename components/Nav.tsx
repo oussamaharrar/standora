@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Menu } from "lucide-react";
 import { useScrollSpy } from "@/lib/useScrollSpy";
 
 const SECTION_LINKS = [
@@ -13,20 +14,24 @@ const SECTION_LINKS = [
 ];
 
 export default function Nav() {
+  const [open, setOpen] = useState(false);
   const activeId = useScrollSpy(SECTION_LINKS.map((link) => link.id));
 
+  const handleNavigate = () => setOpen(false);
+
   return (
-    <header className="sticky top-0 z-30 backdrop-blur supports-[backdrop-filter]:bg-black/30 bg-black/20 border-b border-[rgba(255,255,255,0.15)]">
-      <div className="container py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 no-underline">
-          <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-cyan-400 to-emerald-500" />
-          <span className="font-semibold tracking-wide">Standora</span>
+    <nav className="sticky top-0 z-50 border-b border-white/10 backdrop-blur-md bg-[#0b0e14]/75 supports-[backdrop-filter]:bg-[#0b0e14]/60">
+      <div className="container h-[var(--header-h)] flex items-center justify-between gap-3">
+        <Link href="/" className="flex items-center gap-2 no-underline shrink-0" onClick={handleNavigate}>
+          <div className="h-6 w-6 rounded-md bg-teal-500/80" aria-hidden />
+          <span className="font-semibold">Standora</span>
         </Link>
-        <nav className="hidden md:flex items-center flex-wrap gap-x-4 md:gap-x-6 text-sm text-white/80">
+
+        <div className="nav-scroller hidden lg:flex items-center gap-x-4 md:gap-x-6 min-w-0 text-sm">
           {SECTION_LINKS.map((link) => (
             <a
               key={link.id}
-              href={`/#${link.id}`}
+              href={`#${link.id}`}
               className={`nav-link px-2 md:px-3 no-underline ${activeId === link.id ? "active" : ""}`.trim()}
             >
               {link.label}
@@ -44,26 +49,80 @@ export default function Nav() {
           <Link href="/contact" className="nav-link px-2 md:px-3 no-underline">
             Contact
           </Link>
-        </nav>
-        <div className="hidden md:flex items-center gap-3">
-          <a href="/sample-report.pdf" className="btn btn-ghost text-sm no-underline" target="_blank" rel="noopener">
-            Download sample report (PDF)
-          </a>
-          <Link href="/contact" className="group btn btn-primary text-sm no-underline">
-            Get a live demo <ArrowRight className="h-4 w-4 transition -translate-x-0 group-hover:translate-x-0.5" />
-          </Link>
         </div>
-      </div>
-      <div className="md:hidden border-t border-white/10">
-        <div className="container py-3 flex flex-col sm:flex-row gap-3">
-          <a href="/sample-report.pdf" className="btn btn-ghost text-sm no-underline" target="_blank" rel="noopener">
+
+        <div className="hidden lg:flex items-center gap-2 shrink-0">
+          <a
+            href="/sample-report.pdf"
+            target="_blank"
+            rel="noopener"
+            className="btn btn-ghost btn-compact no-underline"
+          >
             Download sample report (PDF)
           </a>
-          <Link href="/contact" className="btn btn-primary text-sm no-underline">
+          <Link href="/contact" className="btn btn-primary btn-compact no-underline">
             Get a live demo
           </Link>
         </div>
+
+        <button
+          type="button"
+          className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg bg-white/5"
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((v) => !v)}
+        >
+          <Menu className="h-5 w-5" aria-hidden />
+        </button>
       </div>
-    </header>
+
+      {open && (
+        <div id="mobile-nav" className="lg:hidden border-t border-white/10 bg-[#0b0e14]">
+          <div className="px-4 py-3 flex flex-col gap-2 text-sm">
+            {SECTION_LINKS.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className="nav-link py-2 no-underline"
+                onClick={handleNavigate}
+              >
+                {link.label}
+              </a>
+            ))}
+            <Link href="/developers" className="nav-link py-2 no-underline" onClick={handleNavigate}>
+              Developers
+            </Link>
+            <Link href="/last-update" className="nav-link py-2 no-underline" onClick={handleNavigate}>
+              Last Update
+            </Link>
+            <Link href="/about" className="nav-link py-2 no-underline" onClick={handleNavigate}>
+              About
+            </Link>
+            <Link href="/contact" className="nav-link py-2 no-underline" onClick={handleNavigate}>
+              Contact
+            </Link>
+            <div className="pt-2 flex gap-2">
+              <a
+                href="/sample-report.pdf"
+                target="_blank"
+                rel="noopener"
+                className="btn btn-ghost btn-compact grow text-center no-underline"
+                onClick={handleNavigate}
+              >
+                Sample report
+              </a>
+              <Link
+                href="/contact"
+                className="btn btn-primary btn-compact grow text-center no-underline"
+                onClick={handleNavigate}
+              >
+                Get a live demo
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </nav>
   );
 }
